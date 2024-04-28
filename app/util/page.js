@@ -1,3 +1,4 @@
+"use client"
 import { StateContext } from "../../contexts/StateContext"
 import { useState, useEffect, useContext } from "react"
 
