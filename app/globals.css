@@ -3,31 +3,123 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+	height: 100dvh;
+	width: 100dvw;
+	/* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	.text-balance {
+		text-wrap: balance;
+	}
+}
+
+.alertContainer {
+	position: absolute;
+	right: 0;
+	top: 20dvh;
+	height: 400px;
+	max-height: 100dvh;
+	width: max-content;
+	overflow: hidden;
+	padding: 0 0 0 10px;
+	z-index: 1000;
+}
+
+.alertInnerContainer {
+	display: flex;
+	gap: 12px;
+	flex-direction: column;
+	transition: 0.3s;
+}
+
+.alertMessage {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	height: 80px;
+	text-align: center;
+	width: 340px;
+	border-radius: 5px;
+	/* background-color: var(--alert-bg); */
+	/* color: var(--textColor); */
+	/* border-radius: 30px 0 0 30px; */
+	box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.536);
+	/* transition: 0.3s; */
+	/* transform: translateX(100%); */
+	animation: alertmessage 0.3s ease, rightToLeft 0.2s linear,
+		leftToRight 1s 3s ease-in-out;
+}
+
+.alertMessageText {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	height: 100%;
+	text-align: center;
+}
+
+.alertMessageTimerVisual {
+	position: absolute;
+	bottom: 0;
+	height: 3%;
+	/* background-color: var(--); */
+	width: 0%;
+	transition: 0.3s;
+	right: 0;
+	animation: alertTimeEnder 3s linear;
+}
+
+.alertMessageRemoveButton {
+	display: flex;
+	align-items: center;
+	height: 24px;
+	width: 24px;
+}
+@keyframes rightToLeft {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+@keyframes leftToRight {
+	0% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(300%);
+	}
+}
+
+@keyframes alertTimeEnder {
+	0% {
+		width: 100%;
+	}
+	100% {
+		width: 0%;
+	}
 }
