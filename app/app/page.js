@@ -1078,9 +1078,8 @@ export default function App() {
 				],
 			})
 		}
-		return () => {
-			loadData()
-		}
+
+		loadData()
 	}, [])
 
 	const [currentCategorySelected, setCurrentCategorySelected] = useState("")
