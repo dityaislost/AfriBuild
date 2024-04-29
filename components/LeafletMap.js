@@ -1,4 +1,6 @@
 // components/LeafletMap.js
+"use client"
+
 import "leaflet/dist/leaflet.css"
 import React, {
 	useEffect,
@@ -16,7 +18,7 @@ import {
 	useMapEvents,
 } from "react-leaflet"
 import { StateContext } from "../contexts/StateContext"
-import L from "leaflet"
+import { Icon } from "leaflet"
 import MarkerClusterGroup from "react-leaflet-cluster"
 import cities from "cities.json"
 import { useNotification } from "../components/ui/NotificationProvider.js"
@@ -166,7 +168,7 @@ const LeafletMap = () => {
 							votes: 0,
 							icon:
 								ctx.currentSubCategorySelected.icon ||
-								new L.Icon({
+								new Icon({
 									iconUrl:
 										"https://firebasestorage.googleapis.com/v0/b/afribuild-aff4e.appspot.com/o/25613.png?alt=media&token=99add968-1438-43f1-a5d4-a06ca5c76d61",
 									iconSize: [24, 24],

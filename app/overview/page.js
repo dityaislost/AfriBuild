@@ -1,3 +1,5 @@
+"use client"
+
 const Overview = () => {
 	const dataObject = {
 		name: "India",
